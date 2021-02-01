@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ### Run SimSiam
 
 ```
-CUDA_VISIBLE_DEVICES=0 python main.py --data_dir ../Data/ --log_dir ../logs/ -c configs/simsiam_cifar.yaml --ckpt_dir ~/.cache/ --hide_progress
+CUDA_VISIBLE_DEVICES=2,3 python main.py --data_dir ./data/ --log_dir ./logs/ -c configs/simsiam_cifar.yaml --ckpt_dir ./cache/ --hide_progress --gpus 2
 ```
 The data folder `../Data/` should look like this:
 ```
@@ -66,8 +66,7 @@ CUDA_VISIBLE_DEVICES=2 python main.py --data_dir ../Data/ --log_dir ../logs/ -c 
 
 ### TODO
 
-- convert from data-parallel (DP) to distributed data-parallel (DDP)
-- create PyPI package `pip install simsiam-pytorch`
+- linear evaluation DDP
 
 
 If you find this repo helpful, please consider star so that I have the motivation to improve it.
