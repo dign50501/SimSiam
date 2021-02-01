@@ -52,6 +52,9 @@ def get_args():
     parser.add_argument('--device', type=str, default='cuda' if torch.cuda.is_available() else 'cpu')
     parser.add_argument('--eval_from', type=str, default=None)
     parser.add_argument('--hide_progress', action='store_true')
+    parser.add_argument("--gpus", default=2, type=int, help="number of gpus per node")
+    parser.add_argument("--nr", default=0, type=int, help="ranking within the nodes")
+    parser.add_argument("--nodes", default=1, type=int, help="Number of nodes",)
     args = parser.parse_args()
 
 
@@ -61,7 +64,7 @@ def get_args():
 
     if args.debug:
         if args.train: 
-            args.train.batch_size = 2
+            args.train.batch_size
             args.train.num_epochs = 1
             args.train.stop_at_epoch = 1
         if args.eval: 
